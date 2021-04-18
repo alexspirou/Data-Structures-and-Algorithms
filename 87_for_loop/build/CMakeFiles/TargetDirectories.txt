@@ -1,0 +1,3 @@
+/home/alex/Desktop/learning_cpp/87_for_loop/build/CMakeFiles/rebuild_cache.dir
+/home/alex/Desktop/learning_cpp/87_for_loop/build/CMakeFiles/87.dir
+/home/alex/Desktop/learning_cpp/87_for_loop/build/CMakeFiles/edit_cache.dir
