@@ -1,0 +1,3 @@
+/home/alex/Desktop/learning_cpp/3_myvector_project/build/CMakeFiles/rebuild_cache.dir
+/home/alex/Desktop/learning_cpp/3_myvector_project/build/CMakeFiles/myVector.dir
+/home/alex/Desktop/learning_cpp/3_myvector_project/build/CMakeFiles/edit_cache.dir

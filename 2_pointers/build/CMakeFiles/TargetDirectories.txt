@@ -1,0 +1,3 @@
+/home/alex/Desktop/learning_cpp/2_pointers/build/CMakeFiles/rebuild_cache.dir
+/home/alex/Desktop/learning_cpp/2_pointers/build/CMakeFiles/pointers.dir
+/home/alex/Desktop/learning_cpp/2_pointers/build/CMakeFiles/edit_cache.dir
