@@ -9,6 +9,8 @@
 /home/alex/Desktop/learning_cpp/4_linked_list/src/Node.h
 iostream
 -
+cstring
+-
 
 /home/alex/Desktop/learning_cpp/4_linked_list/src/main.cpp
 iostream
