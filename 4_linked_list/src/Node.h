@@ -9,7 +9,19 @@ public:
 
 
 	Node(){}
-	~Node(){}
+
+	Node(T* f_data, int n)
+	{	
+		 create(f_data, n);
+	}
+	Node(T f_data)
+	{	
+		T  arr [] = {f_data};
+		create(arr, 1);
+	}
+	~Node(){
+		delete link;
+	}
 	Node* header;
 
 	void create(T* array, int n){
@@ -19,7 +31,7 @@ public:
 		new_node->link = NULL;
 		Node* previous = new_node;
 		header = new_node;
-		count ++;
+
 		for(int i{1}; i < n; i++){
 			
 			new_node = new Node();
@@ -27,7 +39,6 @@ public:
 			previous = new_node;
 			new_node->data = array[i];
 			new_node->link = NULL;
-			count ++;
 		}
 
 	}
@@ -42,9 +53,19 @@ public:
 
 	}
 
-	size_t get_size(){
+	size_t get_size(Node*  f_node){
+		
+		size_t count = 0;
 
+		while(f_node!=NULL){
+			count ++;
+			f_node = f_node->link;
+		}
 		return count;
+	}
+
+	T get_data(){
+		return data;
 	}
 	
 	T min(Node* f_node){
@@ -93,10 +114,59 @@ public:
 		return sum_;
 	}
 
+	T recursive_sum(Node* f_node){
+
+		if (f_node == NULL){
+			return 0;
+		}
+		return f_node->data + recursive_sum(f_node->link);
+
+	}
+	int  find(T f_data){
+		int index = 0;
+		while(header != NULL){
+			if(f_data == header->data){
+				return index;
+			}
+			else{
+				index ++;
+				header = header->link;
+			}
+		
+		}
+		std::cout << "COULD NOT FOUND DATA " << std::endl;
+		return -1;
+	}
+
+	void inster_first(T f_data){
+		Node* inserted = new Node();
+		inserted->data = f_data;
+		inserted->link = header;
+		header = inserted;
+
+	}
+	void inster_specific_index(T f_data, int index){
+		Node* inserted = new Node();
+		inserted->data = f_data;
+		Node* previous = new Node();
+		previous = header;
+
+		
+		for(int i{0}; i <= index; i++){
+				
+				previous = previous->link; //traverse data
+	
+			}
+		inserted->link = previous->link;
+		previous->link = inserted;
+		
+
+	}
+
+
 private:
 	T data;
 	Node* link;
-	size_t count {0};
 
 };
 #endif
