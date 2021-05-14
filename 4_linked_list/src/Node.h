@@ -138,30 +138,63 @@ public:
 		return -1;
 	}
 
-	void inster_first(T f_data){
+	void insert_first(T f_data){
 		Node* inserted = new Node();
 		inserted->data = f_data;
 		inserted->link = header;
 		header = inserted;
 
 	}
-	void inster_specific_index(T f_data, int index){
-		Node* inserted = new Node();
-		inserted->data = f_data;
-		Node* previous = new Node();
-		previous = header;
 
-		
-		for(int i{0}; i <= index; i++){
+	void insert_2(T inserted_value, unsigned index){
+
+		if(index == 0){
+			insert_first(index);
+			std::cout << "insert_first called" << std::endl;
+			
+		}
+		else{
+			Node* inserted_node = new Node();
+			Node* previous_node = header;
+
+			inserted_node->data = inserted_value;
+
+			for(int i{0}; i < index -1; i++){
 				
-				previous = previous->link; //traverse data
-	
+				previous_node = previous_node->link;
 			}
-		inserted->link = previous->link;
-		previous->link = inserted;
-		
 
+			inserted_node->link = previous_node->link;
+			previous_node->link = inserted_node;
+		}
 	}
+		void remove(unsigned index){
+
+			Node* deleted_node = header;
+			if(index == 0){
+				header = header->link;
+				deleted_node->link = NULL;
+				delete deleted_node;
+			}
+			else{
+				Node* previous_node = header;
+				for (int i{0}; i < index; i++){
+
+					if(i < index-1){
+						previous_node = previous_node->link;
+						deleted_node = deleted_node->link;
+					}
+					else{
+						deleted_node = deleted_node->link;
+					}
+				}
+				previous_node->link= deleted_node->link;
+				deleted_node->link = NULL;
+				delete deleted_node;
+			}
+		}
+
+	
 
 
 private:

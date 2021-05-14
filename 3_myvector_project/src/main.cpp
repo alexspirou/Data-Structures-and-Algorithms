@@ -6,14 +6,14 @@ int main(){
 
 	int arr [] = {5,1,6,4,5};
 	size_t size = 5;
+
 	MyVector<int> vec(size, arr);
-	vec.sort();
 	vec.print();
-	vec.clear();
+
+	size_t before = vec.size();
+	vec.insert(2,1000);
+	size_t after = vec.size();
 	vec.print();
-	vec.resize(5,10);
-	vec.print();
-	vec.append(2);
-	vec.print();
+	std::cout << "THE SIZE BEFORE : " << before << "\nTHE SIZE AFTER : " << after << std::endl;
 	return 0;
 }

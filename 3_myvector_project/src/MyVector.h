@@ -44,6 +44,7 @@ public:
 
 		return count_m;
 	}
+
 	void resize(size_t count_p, T value){
 		delete [] array_m;
 		count_m = count_p;
@@ -74,7 +75,38 @@ public:
 		delete [] temp_array;
 		array_m[count_m -1] = append_value;
 	}
-	void insert(){}
+	void insert(unsigned index, T value){
+		
+
+		if(index <= count_m){
+			count_m ++;
+			T* temp_array = new T[count_m];
+
+			for(int i{0}; i < count_m; i++){
+				temp_array[i] = array_m[i];
+			}
+			delete [] array_m;
+		
+			array_m = new T[count_m];
+
+			for(int i{0}; i < count_m +1; i++){
+				array_m[i] = temp_array[i];
+			}
+
+			delete [] temp_array;
+
+			for(int i{count_m}; i > index; i--){
+					array_m[i]= array_m[i-1];
+					std::cout << "I : " <<i << std::endl;
+				}
+		
+		
+			array_m[index] = value;
+		}
+		else{
+			std::cout <<"NOT VALID INDEX " << std::endl;
+		}
+	}
 	
 	void sort(){
 		int temp{0};
