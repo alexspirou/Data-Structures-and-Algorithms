@@ -53,13 +53,13 @@ public:
 
 	}
 
-	size_t get_size(Node*  f_node){
+	size_t get_size(){
 		
 		size_t count = 0;
 
-		while(f_node!=NULL){
+		while(header!=NULL){
 			count ++;
-			f_node = f_node->link;
+			header = header->link;
 		}
 		return count;
 	}
@@ -194,6 +194,50 @@ public:
 			}
 		}
 
+		bool is_sorted(){
+			Node* previous = header;
+			Node* mid = header->link;
+			Node* next = mid->link;
+			
+			
+				int size = get_size();
+				int* bool_array = new int[size];
+				int temp = 0;
+				for(int i{0}; i < size; i++){
+					bool_array[i] = 0;
+				}
+
+			while(next!=NULL){
+				
+				if(mid->data > previous->data && mid->data < next->data){
+					bool_array[temp] = 1;
+				}
+				temp++;
+				//* std::cout << "DEBUG " << //
+				// "\nprev: "<< previous->data<<
+				// "\nmid: "<< mid->data<<
+				// "\nnext: "<< next->data<<std::endl;
+
+				previous = previous->link;
+				mid = mid->link;
+				next = next->link;		
+			}
+			int sum = 0;
+			for(int i{0}; i < size; i++){
+			    sum	+= bool_array[i];
+			}
+			delete [] bool_array;
+			std::cout << "sum "<<sum << std::endl;
+
+			if(sum == size -2){
+				return true;
+			}
+			else{
+				return false;
+			}
+	
+
+		}
 	
 
 
