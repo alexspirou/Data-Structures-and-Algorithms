@@ -201,7 +201,7 @@ public:
 			
 			
 				int size = get_size();
-				int* bool_array = new int[size];
+				int* bool_array = new int[size]; //array of zeros
 				int temp = 0;
 				for(int i{0}; i < size; i++){
 					bool_array[i] = 0;
@@ -210,7 +210,7 @@ public:
 			while(next!=NULL){
 				
 				if(mid->data > previous->data && mid->data < next->data){
-					bool_array[temp] = 1;
+					bool_array[temp] = 1; //if it's true assign 1
 				}
 				temp++;
 				//* std::cout << "DEBUG " << //
@@ -222,13 +222,14 @@ public:
 				mid = mid->link;
 				next = next->link;		
 			}
+
 			int sum = 0;
 			for(int i{0}; i < size; i++){
 			    sum	+= bool_array[i];
 			}
 			delete [] bool_array;
 			std::cout << "sum "<<sum << std::endl;
-
+			//Check if are enough 1 
 			if(sum == size -2){
 				return true;
 			}
@@ -238,6 +239,45 @@ public:
 	
 
 		}
+
+		bool is_sorted_simpler(){
+
+			T min = header->data;
+
+			while(header!= NULL){
+				if(min  > header->data){
+					return 0;
+				}
+					min = header->data;
+					header = header->link;
+
+				}
+				return true;				
+			}
+		
+		void delete_dublicates (){
+			
+				
+				Node* prev = header;
+				Node* next = header->link;
+				
+				while(prev!=NULL){
+
+					if(prev->data == next->data){
+						std::cout << "DEBUG " << std::endl;
+						Node* temp = next;
+						next = next->link;
+						prev->link = temp->link;
+						temp->link = NULL;
+						delete temp;
+					}
+					prev = prev->link;
+					next = next->link;
+					
+				}
+			
+		}
+		
 	
 
 
