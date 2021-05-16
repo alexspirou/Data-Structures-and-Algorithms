@@ -2,6 +2,7 @@
 #define LINKED_LIST_H
 #include <iostream>
 #include <cstring>
+#include <vector>
 template <typename T>
 class Node{
 
@@ -13,6 +14,7 @@ public:
 	Node(T* f_data, int n)
 	{	
 		 create(f_data, n);
+		std::cout <<"HEADER IN CONSTRUCTOR : "<< header << std::endl;
 	}
 	Node(T f_data)
 	{	
@@ -31,7 +33,6 @@ public:
 		new_node->link = NULL;
 		Node* previous = new_node;
 		header = new_node;
-
 		for(int i{1}; i < n; i++){
 			
 			new_node = new Node();
@@ -43,11 +44,12 @@ public:
 
 	}
 
-	void display_node(Node* f_node){
+	void display_node(){
+		Node* temp = header;
 		std::cout << "{ ";
-		while(f_node!=NULL){
-			std::cout << f_node->data << " ";
-			f_node = f_node->link;
+		while(temp!=NULL){
+			std::cout << temp->data << " ";
+			temp = temp->link;
 		}
 		std::cout <<"}"<< std::endl;
 
@@ -56,10 +58,10 @@ public:
 	size_t get_size(){
 		
 		size_t count = 0;
-
-		while(header!=NULL){
+		Node* temp = header;
+		while(temp!=NULL){
 			count ++;
-			header = header->link;
+			temp = temp->link;
 		}
 		return count;
 	}
@@ -243,13 +245,16 @@ public:
 		bool is_sorted_simpler(){
 
 			T min = header->data;
+			Node* p = header;
 
-			while(header!= NULL){
-				if(min  > header->data){
-					return 0;
-				}
-					min = header->data;
-					header = header->link;
+			while(p!= NULL){
+				
+				if(min  > p->data){
+					return false;
+				}	
+				 	//std::cout << "\nmin : " << min <<"\np->data: " << p->data;
+					min = p->data;
+					p = p->link;
 
 				}
 				return true;				
@@ -260,26 +265,67 @@ public:
 				
 				Node* prev = header;
 				Node* next = header->link;
-				
-				while(prev!=NULL){
+				Node* temp = NULL;
+				while( next!=NULL){
+ 				
 
-					if(prev->data == next->data){
-						std::cout << "DEBUG " << std::endl;
-						Node* temp = next;
+					if(next->data == prev->data){
+						prev->link = next->link;
+						temp = next;
 						next = next->link;
-						prev->link = temp->link;
 						temp->link = NULL;
 						delete temp;
+
 					}
+					else{
+					if(next!=NULL)
+						next = next->link;
 					prev = prev->link;
-					next = next->link;
+					}
 					
 				}
 			
 		}
 		
-	
+		void reverse_data(){
+			
+			Node* temp = header;
+			Node* temp_2 = header;
+			int length = this->get_size();
+			std::cout << length << std::endl;
+			T* arr = new T[length];
+			int i = length -1;
+			while(temp!=NULL){
+				arr[i] = temp->data;
+				i --;
+				temp = temp->link;
+			}
+			temp = header;
+			for(i = 0; i < length; i++){
+				temp->data = arr[i];
+				temp = temp->link;
 
+			}
+			delete [] arr;
+		}
+
+		void reverse_address(){
+			
+			Node* prev = NULL;
+			Node* mid = NULL;
+			Node* next = header;
+
+			while(next!=NULL){
+
+				prev = mid;
+				mid = next;
+				next = next->link;
+				mid->link = prev;
+			}
+
+			header = mid;
+
+		}
 
 private:
 	T data;

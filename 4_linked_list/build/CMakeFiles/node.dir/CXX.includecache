@@ -11,6 +11,8 @@ iostream
 -
 cstring
 -
+vector
+-
 
 /home/alex/Desktop/learning_cpp/4_linked_list/src/main.cpp
 iostream
