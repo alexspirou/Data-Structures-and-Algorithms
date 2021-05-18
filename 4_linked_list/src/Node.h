@@ -13,7 +13,7 @@ public:
 
 	Node(T* f_data, int n)
 	{	
-		 create(f_data, n);
+		create(f_data, n);
 		std::cout <<"HEADER IN CONSTRUCTOR : "<< header << std::endl;
 	}
 	Node(T f_data)
@@ -82,6 +82,7 @@ public:
 		return min_;
 
 	}
+
 	T max(Node* f_node){
 
 		T max_ = f_node->data;
@@ -124,6 +125,7 @@ public:
 		return f_node->data + recursive_sum(f_node->link);
 
 	}
+
 	int  find(T f_data){
 		int index = 0;
 		while(header != NULL){
@@ -170,166 +172,205 @@ public:
 			previous_node->link = inserted_node;
 		}
 	}
-		void remove(unsigned index){
-
-			Node* deleted_node = header;
-			if(index == 0){
-				header = header->link;
-				deleted_node->link = NULL;
-				delete deleted_node;
-			}
-			else{
-				Node* previous_node = header;
-				for (int i{0}; i < index; i++){
-
-					if(i < index-1){
-						previous_node = previous_node->link;
-						deleted_node = deleted_node->link;
-					}
-					else{
-						deleted_node = deleted_node->link;
-					}
-				}
-				previous_node->link= deleted_node->link;
-				deleted_node->link = NULL;
-				delete deleted_node;
-			}
-		}
-
-		bool is_sorted(){
-			Node* previous = header;
-			Node* mid = header->link;
-			Node* next = mid->link;
-			
-			
-				int size = get_size();
-				int* bool_array = new int[size]; //array of zeros
-				int temp = 0;
-				for(int i{0}; i < size; i++){
-					bool_array[i] = 0;
-				}
-
-			while(next!=NULL){
-				
-				if(mid->data > previous->data && mid->data < next->data){
-					bool_array[temp] = 1; //if it's true assign 1
-				}
-				temp++;
-				//* std::cout << "DEBUG " << //
-				// "\nprev: "<< previous->data<<
-				// "\nmid: "<< mid->data<<
-				// "\nnext: "<< next->data<<std::endl;
-
-				previous = previous->link;
-				mid = mid->link;
-				next = next->link;		
-			}
-
-			int sum = 0;
-			for(int i{0}; i < size; i++){
-			    sum	+= bool_array[i];
-			}
-			delete [] bool_array;
-			std::cout << "sum "<<sum << std::endl;
-			//Check if are enough 1 
-			if(sum == size -2){
-				return true;
-			}
-			else{
-				return false;
-			}
 	
+	void remove(unsigned index){
 
+		Node* deleted_node = header;
+		if(index == 0){
+			header = header->link;
+			deleted_node->link = NULL;
+			delete deleted_node;
+		}
+		else{
+			Node* previous_node = header;
+			for (int i{0}; i < index; i++){
+
+				if(i < index-1){
+					previous_node = previous_node->link;
+					deleted_node = deleted_node->link;
+				}
+				else{
+					deleted_node = deleted_node->link;
+				}
+			}
+			previous_node->link= deleted_node->link;
+			deleted_node->link = NULL;
+			delete deleted_node;
+		}
+	}
+
+	bool is_sorted(){
+		Node* previous = header;
+		Node* mid = header->link;
+		Node* next = mid->link;
+		
+		
+			int size = get_size();
+			int* bool_array = new int[size]; //array of zeros
+			int temp = 0;
+			for(int i{0}; i < size; i++){
+				bool_array[i] = 0;
+			}
+
+		while(next!=NULL){
+			
+			if(mid->data > previous->data && mid->data < next->data){
+				bool_array[temp] = 1; //if it's true assign 1
+			}
+			temp++;
+			//* std::cout << "DEBUG " << //
+			// "\nprev: "<< previous->data<<
+			// "\nmid: "<< mid->data<<
+			// "\nnext: "<< next->data<<std::endl;
+
+			previous = previous->link;
+			mid = mid->link;
+			next = next->link;		
 		}
 
-		bool is_sorted_simpler(){
+		int sum = 0;
+		for(int i{0}; i < size; i++){
+			sum	+= bool_array[i];
+		}
+		delete [] bool_array;
+		std::cout << "sum "<<sum << std::endl;
+		//Check if are enough 1 
+		if(sum == size -2){
+			return true;
+		}
+		else{
+			return false;
+		}
 
-			T min = header->data;
-			Node* p = header;
 
-			while(p!= NULL){
-				
-				if(min  > p->data){
-					return false;
-				}	
-				 	//std::cout << "\nmin : " << min <<"\np->data: " << p->data;
-					min = p->data;
-					p = p->link;
+	}
+
+	bool is_sorted_simpler(){
+
+		T min = header->data;
+		Node* p = header;
+
+		while(p!= NULL){
+			
+			if(min  > p->data){
+				return false;
+			}	
+				//std::cout << "\nmin : " << min <<"\np->data: " << p->data;
+				min = p->data;
+				p = p->link;
+
+			}
+			return true;				
+		}
+	
+	void delete_dublicates (){
+		
+			
+			Node* prev = header;
+			Node* next = header->link;
+			Node* temp = NULL;
+			while( next!=NULL){
+			
+
+				if(next->data == prev->data){
+					prev->link = next->link;
+					temp = next;
+					next = next->link;
+					temp->link = NULL;
+					delete temp;
 
 				}
-				return true;				
-			}
-		
-		void delete_dublicates (){
-			
-				
-				Node* prev = header;
-				Node* next = header->link;
-				Node* temp = NULL;
-				while( next!=NULL){
- 				
-
-					if(next->data == prev->data){
-						prev->link = next->link;
-						temp = next;
-						next = next->link;
-						temp->link = NULL;
-						delete temp;
-
-					}
-					else{
-					if(next!=NULL)
-						next = next->link;
-					prev = prev->link;
-					}
-					
+				else{
+				if(next!=NULL)
+					next = next->link;
+				prev = prev->link;
 				}
-			
-		}
+				
+			}
 		
-		void reverse_data(){
-			
-			Node* temp = header;
-			Node* temp_2 = header;
-			int length = this->get_size();
-			std::cout << length << std::endl;
-			T* arr = new T[length];
-			int i = length -1;
-			while(temp!=NULL){
-				arr[i] = temp->data;
-				i --;
-				temp = temp->link;
-			}
-			temp = header;
-			for(i = 0; i < length; i++){
-				temp->data = arr[i];
-				temp = temp->link;
-
-			}
-			delete [] arr;
+	}
+	
+	void reverse_data(){
+		
+		Node* temp = header;
+		Node* temp_2 = header;
+		int length = this->get_size();
+		T* arr = new T[length];
+		int i = length -1;
+		while(temp!=NULL){
+			arr[i] = temp->data;
+			i --;
+			temp = temp->link;
 		}
-
-		void reverse_address(){
-			
-			Node* prev = NULL;
-			Node* mid = NULL;
-			Node* next = header;
-
-			while(next!=NULL){
-
-				prev = mid;
-				mid = next;
-				next = next->link;
-				mid->link = prev;
-			}
-
-			header = mid;
+		temp = header;
+		for(i = 0; i < length; i++){
+			temp->data = arr[i];
+			temp = temp->link;
 
 		}
+		delete [] arr;
+	}
+
+	void reverse_address(){
+		
+		Node* prev = NULL;
+		Node* mid = NULL;
+		Node* next = header;
+
+		while(next!=NULL){
+
+			prev = mid;
+			mid = next;
+			next = next->link;
+			mid->link = prev;
+		}
+
+		header = mid;
+
+	}
+	// recursive_reversing DONT WORK PROPERLY
+	T recursive_reversing(Node* p_){
+		T r_data;
+		std::cout <<p_ << std::endl;
+		if(header!=NULL){
+			r_data = header->data;
+			header = header->link;
+			std::cout << r_data << std::endl;
+			recursive_reversing(header,header);
+			
+			std::cout << "RETURNING "<<r_data << std::endl;
+			p_->data = r_data;
+			p_ =p_->link;
+		}
+		else{
+			std::cout <<"HERE"<< std::endl;
+			header = p_;
+		}
+
+	}
+
+	T concatenate(Node* ll){
+		Node* p = header;
+
+		while(p->link!=NULL){
+			p = p->link;
+		}
+			p->link = ll->header;
+
+	}
+
+	Node* operator +(Node* rhs){
+		Node* p = this->header;
+
+		while(p->link!=NULL){
+			p = p->link;
+		}
+		 p->link = rhs->header;
+		 return this;
+	}
 
 private:
 	T data;
 	Node* link;
-
 };
 #endif
