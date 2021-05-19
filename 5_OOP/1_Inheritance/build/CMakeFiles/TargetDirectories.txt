@@ -1,3 +1,0 @@
-/home/alex/Desktop/learning_cpp/5_OOP/1_Inheritance/build/CMakeFiles/rebuild_cache.dir
-/home/alex/Desktop/learning_cpp/5_OOP/1_Inheritance/build/CMakeFiles/inheritance.dir
-/home/alex/Desktop/learning_cpp/5_OOP/1_Inheritance/build/CMakeFiles/edit_cache.dir

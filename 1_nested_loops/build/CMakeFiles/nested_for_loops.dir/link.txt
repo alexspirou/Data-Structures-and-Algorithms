@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/nested_for_loops.dir/src/main.cpp.o  -o nested_for_loops 

@@ -1,3 +1,0 @@
-/home/alex/Desktop/learning_cpp/1_nested_loops/build/CMakeFiles/rebuild_cache.dir
-/home/alex/Desktop/learning_cpp/1_nested_loops/build/CMakeFiles/nested_for_loops.dir
-/home/alex/Desktop/learning_cpp/1_nested_loops/build/CMakeFiles/edit_cache.dir

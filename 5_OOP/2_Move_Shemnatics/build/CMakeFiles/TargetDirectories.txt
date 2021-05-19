@@ -1,3 +1,0 @@
-/home/alex/Desktop/learning_cpp/5_OOP/2_Move_Shemnatics/build/CMakeFiles/rebuild_cache.dir
-/home/alex/Desktop/learning_cpp/5_OOP/2_Move_Shemnatics/build/CMakeFiles/move.dir
-/home/alex/Desktop/learning_cpp/5_OOP/2_Move_Shemnatics/build/CMakeFiles/edit_cache.dir
