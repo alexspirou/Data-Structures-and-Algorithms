@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/Desktop/learning_cpp/4_linked_list/src/Node.h
+/home/alex/Desktop/learning_cpp/linked_list/src/Node.h
 iostream
 -
 cstring
@@ -14,7 +14,7 @@ cstring
 vector
 -
 
-/home/alex/Desktop/learning_cpp/4_linked_list/src/main.cpp
+/home/alex/Desktop/learning_cpp/linked_list/src/main.cpp
 iostream
 -
 vector
@@ -22,5 +22,5 @@ vector
 string
 -
 Node.h
-/home/alex/Desktop/learning_cpp/4_linked_list/src/Node.h
+/home/alex/Desktop/learning_cpp/linked_list/src/Node.h
 

@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/alex/Desktop/learning_cpp/4_linked_list/src 
+CXX_INCLUDES = -I/home/alex/Desktop/learning_cpp/linked_list/src 
 

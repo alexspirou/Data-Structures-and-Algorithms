@@ -70,7 +70,8 @@ public:
 		return data;
 	}
 	
-	T min(Node* f_node){
+	T min(){
+		Node* f_node = header;
 		T min_ = f_node->data;
 
 		while (f_node!= NULL){
@@ -83,8 +84,8 @@ public:
 
 	}
 
-	T max(Node* f_node){
-
+	T max(){
+		Node* f_node = header;
 		T max_ = f_node->data;
 		while(f_node!=NULL){
 			if(f_node->data > max_){
@@ -95,8 +96,8 @@ public:
 		return max_;
 	}
 
-	T sum(Node* f_node){
-
+	T sum(){
+		Node* f_node = header;
 		T sum_ = f_node->data - f_node->data;
 
 		// if constexpr (std::is_same_v<T, char>){

@@ -3,6 +3,10 @@
 #include <string>
 #include "Node.h"
 
+template <typename T>
+void print(T obj){
+	std::cout << obj << std::endl;
+}
 
 int main(){
 
@@ -16,10 +20,13 @@ int main(){
 
 	//node->display_node(node->header);
 	node->display_node();
-	//node->concatenate(node_2);
-	node_3->concatenate(node);
-
-	node_3->display_node();
+	node->reverse_data();
+	node->delete_dublicates();
+	node->remove(0);
+	print(node->max());
+	print(node->sum());
+	node->reverse_data();
+	node->display_node();
 	
 	return 0;
 }
