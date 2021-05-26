@@ -1,3 +1,0 @@
-/home/alex/Desktop/learning_cpp/4_linked_list/build/CMakeFiles/rebuild_cache.dir
-/home/alex/Desktop/learning_cpp/4_linked_list/build/CMakeFiles/node.dir
-/home/alex/Desktop/learning_cpp/4_linked_list/build/CMakeFiles/edit_cache.dir
