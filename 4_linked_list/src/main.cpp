@@ -3,26 +3,22 @@
 #include <string>
 #include "Node.h"
 
-template <typename T>
-void print(T obj){
-	std::cout << obj << std::endl;
-}
 
 int main(){
 
-	int n = 3;
-	int arr [] = {1,2,3};
-	int n2 = 7;
-	int arr2 [] = {1,2,4,6,8,10,12};
+	int n = 9;
+	int arr [] = {2,2,3,4,4,5,6,7,7};
+	int n2 = 3;
+	int arr2 [] = {0,1,2};
 	Node<int>* node = new Node<int>(arr, n);
 	Node<int>* node_2 = new Node<int>(arr2, n2);
-
-	node->display_node();
-
-	node->merge(node_2);
 	
+
+	//node->display_node(node->header);
 	node->display_node();
-	node->delete_dublicates();
+	//node->concatenate(node_2);
+	node->merge(node_2);
+	node->display_node();
 	node->display_node();
 	return 0;
 }

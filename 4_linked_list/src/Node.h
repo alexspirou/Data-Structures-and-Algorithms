@@ -70,8 +70,7 @@ public:
 		return data;
 	}
 	
-	T min(){
-		Node* f_node = header;
+	T min(Node* f_node){
 		T min_ = f_node->data;
 
 		while (f_node!= NULL){
@@ -84,8 +83,8 @@ public:
 
 	}
 
-	T max(){
-		Node* f_node = header;
+	T max(Node* f_node){
+
 		T max_ = f_node->data;
 		while(f_node!=NULL){
 			if(f_node->data > max_){
@@ -96,8 +95,8 @@ public:
 		return max_;
 	}
 
-	T sum(){
-		Node* f_node = header;
+	T sum(Node* f_node){
+
 		T sum_ = f_node->data - f_node->data;
 
 		// if constexpr (std::is_same_v<T, char>){
@@ -261,6 +260,7 @@ public:
 				p = p->link;
 
 			}
+			p = header;
 			return true;				
 		}
 	
@@ -360,65 +360,32 @@ public:
 
 	}
 
-	void merge(Node* second){
+	Node* operator +(Node* rhs){
+		Node* p = this->header;
 
-
-		if(this->is_sorted_simpler()&& second->is_sorted_simpler()){
-			Node* p_1 = header;
-			Node* p_2 = second->header;
-
-			Node* third = NULL;
-			Node* last = NULL;
-			std::cout << "BEFORE INIT" << std::endl;
-			if(p_1->data <= p_2->data){
-
-				third = p_1;
-				last = p_1;
-				p_1 = p_1->link;
-				third->link = NULL;
-				std::cout << "FIRST IF " << std::endl;
-			}
-			else{
-				third = p_2;
-				last = p_2;
-				p_2 = p_2->link;
-				third->link = NULL;
-				std::cout << "SECOND IF " << std::endl;
-
-			}
-
-			while(p_1 != NULL && p_2 != NULL){
-
-				if(p_1->data <= p_2->data){
-					
-					last->link = p_1;
-					last = p_1;
-					p_1 = p_1->link;
-					last->link = NULL;
-				}
-				else if(p_1->data >= p_2->data){
-
-					last->link = p_2;
-					last = p_2;
-					p_2 = p_2->link;
-					last->link = NULL;
-				}
-			}
+		while(p->link!=NULL){
+			p = p->link;
 		}
-		else{
-			if(!this->is_sorted_simpler() && second->is_sorted_simpler()){
-				std::cout << "MERGE IS NOT POSSIBLE :: FIRST LINKED LIST IS NOT SORTED" << std::endl;
-			}
-			else if(this->is_sorted_simpler() && !second->is_sorted_simpler()){
-				std::cout << "MERGE IS NOT POSSIBLE :: SECOND LINKED LIST IS NOT SORTED" << std::endl;
-				
-			}
-			else{
-				std::cout << "MERGE IS NOT POSSIBLE :: BOTH LINKED LISTS ARE NOT SORTED" << std::endl;
-
-			}
-		}
+		 p->link = rhs->header;
+		 return this;
 	}
+
+	void merge(Node* ll){
+
+		Node* f = header;
+		Node* f_2 = ll->header;
+		Node* third = NULL;
+		Node* last = NULL;
+
+		if(f->data < f_2->data){
+			third = f;
+			last = f;
+			f = f->next;
+			
+		}
+
+	}
+
 private:
 	T data;
 	Node* link;
