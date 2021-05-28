@@ -1,0 +1,3 @@
+/home/alex/Desktop/learning_cpp/linked_list/circular_linked_list/build/CMakeFiles/rebuild_cache.dir
+/home/alex/Desktop/learning_cpp/linked_list/circular_linked_list/build/CMakeFiles/node.dir
+/home/alex/Desktop/learning_cpp/linked_list/circular_linked_list/build/CMakeFiles/edit_cache.dir

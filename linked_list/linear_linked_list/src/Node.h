@@ -419,6 +419,28 @@ public:
 			}
 		}
 	}
+
+	void loop(unsigned index){
+		if(index <= this->get_size()){
+			Node* p = header;
+			Node* q = p;
+			for(int i {0}; i <index; i++){
+				q = q->link;
+
+			}
+			while(p!=NULL){
+				p = p->link;
+			}
+
+			p->link = q;
+
+			std::cout << p->link << std::endl;
+			std::cout << q << std::endl;
+			
+		}
+
+	}
+
 private:
 	T data;
 	Node* link;
