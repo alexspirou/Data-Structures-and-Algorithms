@@ -10,7 +10,7 @@ void print(T obj){
 
 int main(){
 
-	int n = 73;
+	int n = 7;
 	int arr [] = {1,2,3,4,5,6,8,8};
 	int n2 = 7;
 	int arr2 [] = {1,2,4,6,8,10,12};
@@ -18,12 +18,11 @@ int main(){
 	Node<int>* node_2 = new Node<int>(arr2, n2);
 
 	node->display_node();
+	node->insert_2(10,2);
+	node->display_node();
 
-	node->loop(3);
-
-	//node->display_node();
-}
-
+	
+	}
 
 
 

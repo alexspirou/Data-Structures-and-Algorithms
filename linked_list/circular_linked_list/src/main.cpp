@@ -17,8 +17,9 @@ int main(){
 	
 	C_Node<int>* node = new C_Node<int>(arr,n);
 
-	//node->display();
-	node->recursive_display(node->header);
+	node->display();
+	node->delete_element(0);
+	node->display();
 }
 
 
