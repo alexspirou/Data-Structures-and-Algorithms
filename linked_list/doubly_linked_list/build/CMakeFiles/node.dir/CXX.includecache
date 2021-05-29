@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/doubly_linked_list/src/D_Node.h
+iostream
+-
+
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/doubly_linked_list/src/main.cpp
+iostream
+-
+vector
+-
+string
+-
+D_Node.h
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/doubly_linked_list/src/D_Node.h
+

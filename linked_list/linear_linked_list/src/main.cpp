@@ -18,7 +18,7 @@ int main(){
 	Node<int>* node_2 = new Node<int>(arr2, n2);
 
 	node->display_node();
-	node->insert_2(10,2);
+	node->merge(node_2);
 	node->display_node();
 
 	

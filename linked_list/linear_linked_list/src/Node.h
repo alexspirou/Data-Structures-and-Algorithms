@@ -3,7 +3,7 @@
 #include <iostream>
 
 template <typename T>
-class Node{
+class 	Node{
 
 public:
 
@@ -368,39 +368,35 @@ public:
 
 			Node* third = NULL;
 			Node* last = NULL;
-			std::cout << "BEFORE INIT" << std::endl;
 			if(p_1->data <= p_2->data){
 
 				third = p_1;
 				last = p_1;
-				p_1 = p_1->link;
-				third->link = NULL;
-				std::cout << "FIRST IF " << std::endl;
+				p_1 = p_1->next;
+				third->next = NULL;
 			}
 			else{
 				third = p_2;
 				last = p_2;
-				p_2 = p_2->link;
-				third->link = NULL;
-				std::cout << "SECOND IF " << std::endl;
-
+				p_2 = p_2->next;
+				third->next = NULL;
 			}
 
 			while(p_1 != NULL && p_2 != NULL){
 
 				if(p_1->data <= p_2->data){
 					
-					last->link = p_1;
+					last->next = p_1;
 					last = p_1;
-					p_1 = p_1->link;
-					last->link = NULL;
+					p_1 = p_1->next;
+					last->next = NULL;
 				}
 				else if(p_1->data >= p_2->data){
 
-					last->link = p_2;
+					last->next = p_2;
 					last = p_2;
-					p_2 = p_2->link;
-					last->link = NULL;
+					p_2 = p_2->next;
+					last->next = NULL;
 				}
 			}
 		}

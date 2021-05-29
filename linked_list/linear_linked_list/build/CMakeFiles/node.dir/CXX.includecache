@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/Desktop/learning_cpp/linked_list/linear_linked_list/src/Node.h
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/linear_linked_list/src/Node.h
 iostream
 -
 
-/home/alex/Desktop/learning_cpp/linked_list/linear_linked_list/src/main.cpp
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/linear_linked_list/src/main.cpp
 iostream
 -
 vector
@@ -18,5 +18,5 @@ vector
 string
 -
 Node.h
-/home/alex/Desktop/learning_cpp/linked_list/linear_linked_list/src/Node.h
+/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/linear_linked_list/src/Node.h
 

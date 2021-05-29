@@ -10,16 +10,19 @@ void print(T obj){
 
 int main(){
 
-	int n = 7;
+	int n = 8;
 	int arr [] = {1,2,3,4,5,6,8,8};
 	int n2 = 7;
 	int arr2 [] = {1,2,4,6,8,10,12};
-	Node<int>* node = new Node<int>(arr, n);
-	Node<int>* node_2 = new Node<int>(arr2, n2);
+	D_Node<int>* node = new D_Node<int>(arr, n);
+	D_Node<int>* node_2 = new D_Node<int>(arr2, n2);
 
 
+	node->display();
+	node->reverse_display();	
 	
-	}
+	return 0;	
+}
 
 
 

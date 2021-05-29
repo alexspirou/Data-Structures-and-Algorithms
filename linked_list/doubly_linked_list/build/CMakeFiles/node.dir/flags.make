@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/linear_linked_list/src 
+CXX_INCLUDES = -I/home/alex/Desktop/Data-Structures-and-Algorithms/linked_list/doubly_linked_list/src 
 
