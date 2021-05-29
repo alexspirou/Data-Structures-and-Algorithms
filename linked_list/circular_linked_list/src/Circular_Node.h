@@ -33,6 +33,19 @@ public:
 			
 	}
 
+	unsigned get_size(){
+		
+		unsigned counter = 0;
+		C_Node* p = header;
+
+		while(p!=last){
+			counter ++;
+			p = p->link;
+		}
+		return counter;
+
+	}
+
 	void display(){
 		C_Node* p = header;
 		std::cout << "{ ";
@@ -78,7 +91,7 @@ public:
 
 		C_Node* p = header;
 		
-		if(index!= 0){
+		if(index!= 0 && index < this->get_size()){
 			C_Node* q = p->link;
 
 			for (int i{0}; i < index-1; i ++){
@@ -90,11 +103,14 @@ public:
 			delete p->link;
 			p->link = q;
 		}
-		else{
+		else if(index < this->get_size()){
 
 			header = header->link;
 			last->link = header;
 			delete p;
+		}
+		else{
+			std::cout << "INVALID INDEX" << std::endl;
 		}
 	}
 
