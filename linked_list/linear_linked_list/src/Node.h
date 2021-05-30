@@ -415,7 +415,24 @@ public:
 		}
 	}
 
+	void find_middle_node(){
 
+		Node* p = header;
+		int counter = 0;
+		for (int i{0}; i < (this->get_size()+1)/2-1; i++){
+			counter ++;
+			p = p->next;
+			
+		}
+		if(this->get_size() % 2 == 0){
+			std::cout << "TWO MIDDLE NODES " << std::endl;
+			std::cout << "Middle node is in index : " << counter << "\nData =" << p->data <<
+			"\nMiddle Node is in index : " << counter +1 << "\nData = " << p->next->data << std::endl;
+		}
+		else{
+			std::cout << "Middle Node is in index: " << counter << "\nData = " << p->data << std::endl;
+		}
+	}
 private:
 	T data;
 	Node* next;

@@ -19,6 +19,9 @@ int main(){
 
 
 	node->display();
+	node->delete_element(0);
+	node->display();
+	
 	node->reverse_display();	
 	
 	return 0;	

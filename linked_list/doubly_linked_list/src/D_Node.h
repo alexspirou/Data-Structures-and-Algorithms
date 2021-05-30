@@ -64,6 +64,65 @@ public:
 		std::cout <<p->data << " }" << std::endl;
 
 	}
+	
+	void insert(T element, unsigned index){
+			
+		D_Node* n = new D_Node();
+		n->data = element;
+		D_Node* p = header;
+
+		if(index!=0){
+
+			for(int i{0}; i < index-1; i++){
+				p = p->next;
+			}
+
+			D_Node* q = p->next;
+
+			p->next = n;
+			n->previous = p;
+			n->next = q;
+			q->previous = n;
+		}
+		else{
+			
+			n->previous = NULL;
+			n->next = header;
+			header->previous = n;
+			header = n;
+
+
+		}
+ 
+	}
+
+	void delete_element(unsigned index){
+		
+		D_Node* p = header;
+		
+		if(index!=0){
+			for(int i{0}; i < index -1; i ++){
+				p = p->next;
+			}
+			D_Node* d = p->next;
+			D_Node* q = d->next;
+
+			d->previous = NULL;
+			d->next = NULL;
+			delete d;
+			p->next = q;
+			q->previous = p;
+		}
+		else{
+
+			header = p->next;
+			p->next = NULL;
+			delete p;
+		}
+
+	}
+	
+
 
 private:
 	T data;
