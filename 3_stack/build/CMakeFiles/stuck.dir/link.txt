@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/stuck.dir/src/main.cpp.o  -o stuck 

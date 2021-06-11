@@ -419,7 +419,7 @@ public:
 
 		Node* p = header;
 		int counter = 0;
-		for (int i{0}; i < (this->get_size()+1)/2-1; i++){
+		for (int i{0}; i < (this->get_size()-1)/2; i++){
 			counter ++;
 			p = p->next;
 			

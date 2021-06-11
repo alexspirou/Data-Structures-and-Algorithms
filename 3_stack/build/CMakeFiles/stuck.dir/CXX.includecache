@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/Desktop/Data-Structures-and-Algorithms/3_stack/src/Stack.h
+iostream
+-
+
+/home/alex/Desktop/Data-Structures-and-Algorithms/3_stack/src/main.cpp
+iostream
+-
+Stack.h
+/home/alex/Desktop/Data-Structures-and-Algorithms/3_stack/src/Stack.h
+
