@@ -7,6 +7,7 @@ class Stack
 {
 
 public:
+    int top{0};       //Pointer to see how many elements are
 
     Stack(unsigned sz):size{sz}
     {
@@ -28,9 +29,7 @@ public:
     }
     void pushElement(T element)
     {
-        // std::cout << "TOP " << top <<" Size: " << this->size << std::endl;
 
-        // std::cout << (this->top  > this->size) << std::endl;
         if(!isFull())
         {
             stack[top+1] = element; //Push an element in the top of the stack
@@ -61,26 +60,25 @@ public:
     
         
     }
-    void peek(unsigned index)
+    T peek(unsigned index)
     {
         T disp;
         
         if(index <= top)
         {
             disp =stack[top + 1- index-1];
-            std::cout << disp << std::endl;
+            return disp;
             
         }
         else
         {
-            std::cout << "WRONG INDEX" << std::endl;
+            return -1;
         }
         
     }
 private:
     
     T* stack;       //Array to construct the stack
-    int top{0};       //Pointer to see how many elements are
     unsigned size; //Size of stack
 };
 
