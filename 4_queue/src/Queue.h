@@ -20,51 +20,75 @@ public:
     //Insert an element
     void cnqueue(T element)
     {        
-         if(!isFull() && front < size)
+         if(end == (end + 1)%size)
          {
-             front ++;
-             q[front] = element;
+            std::cout << "Queue is full " << std::endl;
          }
          else
          {
-            std::cout << "Queue is full " << std::endl;
+            end = (end + 1) % size;
+            q[end] = element;
+     
          }
     }
 
     void dequeue()
     {
         if(!isEmpty())
+            start++;
+        else
         {
-            rear ++;
+            end = -1;
+            start = -1;
         }
     }
 
     bool isFull()
     {
-       bool m_bFlag = (front == rear && front != -1)? 1 : 0;
-        return m_bFlag;
+       if (end == size-1 )
+       {           
+            return true;
+       }
+
+        
     }
     bool isEmpty()
     {
-        bool m_bFlag = (front == -1 && rear == -1 )? 1: 0;
-        return m_bFlag;
+        if(end == start )
+        {
+
+            return true;
+        }
+        
     }
 
     void display()
     {
-        std::cout << "{ ";
-        for(int i{rear+1}; i <= front; i++)
+        if(!isFull())
         {
-            std::cout << q[i] << " ";
+            std::cout << "{ ";
+            for(int i{start+1}; i < size; i++)
+            {
+                std::cout << q[i] << " ";
+            }
+            std::cout << "}" << std::endl;
         }
-        std::cout << " }" << std::endl;
+        else if(end < start)
+        {
+            std::cout << "{ ";
+            for(int i{start+1}; i < size; i++)
+            {
+                std::cout << q[i] << " ";
+            }
+                std::cout << "}" << std::endl;  
+            }
     }
 private: 
 
     T* q;
     int size{0};
-    int rear{-1};
-    int front{-1};
+    int end{0};
+    int start{0};
 };
 
 #endif

@@ -13,12 +13,27 @@ int main()
     q.cnqueue(3);
     q.cnqueue(4);
     q.cnqueue(5);
-    
-    q.display();
+
     q.dequeue();
+    q.cnqueue(6);
     q.display();
 
+    q.dequeue();
+    q.cnqueue(7); 
+    q.display();
 
+    q.dequeue();
+    q.cnqueue(8); 
+    q.display();
+
+    q.dequeue();
+    q.cnqueue(9); 
+    q.display();
+
+    q.dequeue();
+    q.cnqueue(10); 
+    q.display();
+    
     std::cout << "OKE" << std::endl;
 
 
