@@ -18,34 +18,37 @@ public:
     ~Queue(){delete [] q;}
 
     //Insert an element
-    void cnqueue(T element)
+    void enqueue(T element)
     {        
-         if(end == (end + 1)%size)
+         if(isFull())
          {
             std::cout << "Queue is full " << std::endl;
          }
          else
          {
-            end = (end + 1) % size;
-            q[end] = element;
+            end = (end + 1) % size; //1,2,3,4,0,1,2,3,4 
+            q[end] = element; 
+
      
          }
     }
 
     void dequeue()
     {
-        if(!isEmpty())
-            start++;
+        if(isEmpty())
+        {
+            std::cout << "Queue is empty " << std::endl;
+        }
         else
         {
-            end = -1;
-            start = -1;
+            start = (start +1)%size;
+
         }
     }
 
     bool isFull()
     {
-       if (end == size-1 )
+       if ((end + 1) %size == start )
        {           
             return true;
        }
@@ -60,28 +63,6 @@ public:
             return true;
         }
         
-    }
-
-    void display()
-    {
-        if(!isFull())
-        {
-            std::cout << "{ ";
-            for(int i{start+1}; i < size; i++)
-            {
-                std::cout << q[i] << " ";
-            }
-            std::cout << "}" << std::endl;
-        }
-        else if(end < start)
-        {
-            std::cout << "{ ";
-            for(int i{start+1}; i < size; i++)
-            {
-                std::cout << q[i] << " ";
-            }
-                std::cout << "}" << std::endl;  
-            }
     }
 private: 
 
